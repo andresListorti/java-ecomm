@@ -1,0 +1,4 @@
+2024-10-01 11:43:14.709683-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM CLIENTE DOMICILIO [*]DOMICILIO"
+Syntax error in SQL statement "SELECT * FROM CLIENTE DOMICILIO [*]DOMICILIO"; SQL statement:
+SELECT * FROM CLIENTE DOMICILIO DOMICILIO [42000-224]
