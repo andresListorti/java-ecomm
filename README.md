@@ -6,6 +6,12 @@ Estructura y Funcionalidad:
 
 La aplicación está organizada en paquetes que incluyen las capas de modelo, repositorio, servicio y controlador. En esta fase, se han implementado entidades básicas como Cliente y Domicilio, junto con una demostración de persistencia en la base de datos en memoria H2.
 
+En la clase principal EcomApplication, se ha implementado CommandLineRunner para ejecutar un método run() al inicio de la aplicación. Como demostración inicial de persistencia, se realiza lo siguiente:
+Se crea un objeto de tipo Domicilio.
+Se crea un objeto Cliente y se asocia al domicilio creado.
+El cliente se persiste en la base de datos.
+Finalmente, se imprime la información del cliente en la consola.
+
 Configuración:
 
 La conexión a la base de datos y otros ajustes se realizan en el archivo application.properties.
