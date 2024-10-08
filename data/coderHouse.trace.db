@@ -2,3 +2,11 @@
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM CLIENTE DOMICILIO [*]DOMICILIO"
 Syntax error in SQL statement "SELECT * FROM CLIENTE DOMICILIO [*]DOMICILIO"; SQL statement:
 SELECT * FROM CLIENTE DOMICILIO DOMICILIO [42000-224]
+2024-10-08 01:27:32.231071-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]DOMICILIO"; se esperaba "DELETE, DROP"
+Syntax error in SQL statement "[*]DOMICILIO"; expected "DELETE, DROP"; SQL statement:
+DOMICILIO [42001-224]
+2024-10-08 01:28:13.994431-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]run * from cliente"; se esperaba "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"
+Syntax error in SQL statement "[*]run * from cliente"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"; SQL statement:
+run * from cliente [42001-224]

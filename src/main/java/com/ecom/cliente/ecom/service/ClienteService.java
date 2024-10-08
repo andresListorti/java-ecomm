@@ -34,4 +34,14 @@ public class ClienteService {
         return this.clienteRepository.findByNombre(nombre);
     }
 
+    public void borrarCliente(Cliente c) {
+        if (this.clienteRepository.existsById(c.getId())) {
+            this.clienteRepository.delete(c);
+        } else {
+            System.out.println("El Cliente no puede borrarse porque no existe");
+        }
+
+    }
+
+
 }

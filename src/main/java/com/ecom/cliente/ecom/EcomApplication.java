@@ -78,8 +78,19 @@ public class EcomApplication implements CommandLineRunner {
 		
 		Cliente buscadoPorNombre = clienteService.findByNombre("Yesica");
 		System.out.println(buscadoPorNombre);
-
 		
+		
+		System.out.println("************Buscado por Borrado Yamila*************************");
+		clienteService.borrarCliente(c5);
+		System.out.println("******************Borrada***********************");
+
+		System.out.println("Traer Clientes Restantes");
+		for (Cliente c : clienteService.getAllClientes()) {
+			
+			System.out.println(c);
+			
+		}
+
 
 	}
 
