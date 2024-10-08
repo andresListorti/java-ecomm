@@ -1,6 +1,7 @@
 package com.ecom.cliente.ecom.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,16 @@ public class ClienteService {
     public List<Cliente> getAllClientes() {
         return clienteRepository.findAll();
     }
+    
+    public Optional<Cliente> getById(int id) {
+        return clienteRepository.findById(id);
+    }
 
+    public Cliente findByDni(Long dni) {
+        return this.clienteRepository.findByDni(dni);
+    }
+    public Cliente findByNombre(String nombre) {
+        return this.clienteRepository.findByNombre(nombre);
+    }
 
 }

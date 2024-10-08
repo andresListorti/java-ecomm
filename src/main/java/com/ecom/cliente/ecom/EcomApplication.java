@@ -2,6 +2,7 @@ package com.ecom.cliente.ecom;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -25,23 +26,58 @@ public class EcomApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("*********************");		
-		System.out.println("**********************");
+		System.out.println("********************");
 		System.out.println("Usando JPA con Spring");
 		
 
 		Domicilio domicilioA = new Domicilio();
+		Domicilio domicilioB = new Domicilio();
+		Domicilio domicilioC = new Domicilio();
+		Domicilio domicilioD = new Domicilio();
+		Domicilio domicilioE = new Domicilio();
 		List<Domicilio> domiciliosC1 = new ArrayList<>();
+		List<Domicilio> domiciliosC2 = new ArrayList<>();
+		List<Domicilio> domiciliosC3 = new ArrayList<>();
+		List<Domicilio> domiciliosC4 = new ArrayList<>();
+		List<Domicilio> domiciliosC5 = new ArrayList<>();
 		domiciliosC1.add(domicilioA);
-		Cliente c1 = new Cliente("andres", "Perez", 23658958, domiciliosC1);
+		domiciliosC2.add(domicilioB);
+		domiciliosC3.add(domicilioC);
+		domiciliosC4.add(domicilioD);
+		domiciliosC5.add(domicilioE);
+		Cliente c1 = new Cliente("Andres", "Listorti", 42658958, domiciliosC1);
+		Cliente c2 = new Cliente("Maria Soledad", "Gallo", 43444958, domiciliosC2);
+		Cliente c3 = new Cliente("Yesica", "Vazquez", 396584118, domiciliosC3);
+		Cliente c4 = new Cliente("Luz", "Britez", 18658223, domiciliosC4);
+		Cliente c5 = new Cliente("Yamila", "White", 432228958, domiciliosC5);
 		clienteService.agregarCliente(c1);
-		
-		System.out.println("traer cliente Creado");
+		clienteService.agregarCliente(c2);
+		clienteService.agregarCliente(c3);
+		clienteService.agregarCliente(c4);
+		clienteService.agregarCliente(c5);		
+
+		System.out.println("Traer clientes Creados");
 		for (Cliente c : clienteService.getAllClientes()) {
 			
 			System.out.println(c);
 			
 		}
-
+		
+		Optional<Cliente> buscadoPorId = clienteService.getById(1);
+		
+		System.out.println("************Buscado por ID 1*************************");
+		System.out.println(buscadoPorId);
+		
+		
+		System.out.println("************Buscado por DNI*************************");
+		
+		Cliente buscadoPorDni = clienteService.findByDni((long) 42658958);
+		System.out.println(buscadoPorDni);
+		
+		System.out.println("************Buscado por Nombre *************************");
+		
+		Cliente buscadoPorNombre = clienteService.findByNombre("Yesica");
+		System.out.println(buscadoPorNombre);
 
 		
 
