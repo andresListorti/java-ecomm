@@ -14,6 +14,7 @@ public class ClienteService {
 
     @Autowired
     private ClienteRepository clienteRepository;
+    
 
     public void agregarCliente(Cliente cliente) {
         clienteRepository.save(cliente);
@@ -32,6 +33,10 @@ public class ClienteService {
     }
     public Cliente findByNombre(String nombre) {
         return this.clienteRepository.findByNombre(nombre);
+    }
+    
+    public List<Cliente> findByApellido(String apellido) {
+        return this.clienteRepository.findByApellido(apellido);
     }
 
     public void borrarCliente(Cliente c) {

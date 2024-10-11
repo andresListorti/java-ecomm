@@ -1,5 +1,8 @@
 package com.ecom.cliente.ecom;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -79,6 +82,11 @@ public class EcomApplication implements CommandLineRunner {
 		Cliente buscadoPorNombre = clienteService.findByNombre("Yesica");
 		System.out.println(buscadoPorNombre);
 		
+		System.out.println("************Buscado por Apellido *************************");
+		
+		List<Cliente> buscadoPorApellido = clienteService.findByApellido("Gallo");
+		System.out.println(buscadoPorApellido);
+		
 		
 		System.out.println("************Buscado por Borrado Yamila*************************");
 		clienteService.borrarCliente(c5);
@@ -90,6 +98,12 @@ public class EcomApplication implements CommandLineRunner {
 			System.out.println(c);
 			
 		}
+
+		ZoneId zonaArgentina = ZoneId.of("America/Argentina/Buenos_Aires");
+		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+		ZonedDateTime fechaActual = ZonedDateTime.now(zonaArgentina);
+
+		System.out.println("LA fecha actual es: " + fechaActual.format(formato));
 
 
 	}
