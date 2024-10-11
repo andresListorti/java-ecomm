@@ -106,6 +106,8 @@ public class EcomApplication implements CommandLineRunner {
 		System.out.println("LA fecha actual es: " + fechaActual.format(formato));
 
 
+
+
 	}
 
 }
