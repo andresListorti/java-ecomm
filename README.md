@@ -12,7 +12,7 @@ Se crea un objeto Cliente y se asocia al domicilio creado.
 El cliente se persiste en la base de datos.
 Finalmente, se imprime la información del cliente en la consola.
 
-Se agregan controladores REST y servicios, se ponen a prueba primero por consola en la clase principal EcomApplication, en http://localhost:8080/h2-console y luego con Postman.
+Se agregan controladores REST y servicios CRUD en el ClienteService, se ponen a prueba primero por consola en la clase principal EcomApplication, en http://localhost:8080/h2-console y luego con Postman.
 
 Configuración:
 
