@@ -33,31 +33,31 @@ public class EcomApplication implements CommandLineRunner {
 		System.out.println("Usando JPA con Spring");
 		
 
-		Domicilio domicilioA = new Domicilio();
-		Domicilio domicilioB = new Domicilio();
-		Domicilio domicilioC = new Domicilio();
-		Domicilio domicilioD = new Domicilio();
-		Domicilio domicilioE = new Domicilio();
-		List<Domicilio> domiciliosC1 = new ArrayList<>();
-		List<Domicilio> domiciliosC2 = new ArrayList<>();
-		List<Domicilio> domiciliosC3 = new ArrayList<>();
-		List<Domicilio> domiciliosC4 = new ArrayList<>();
-		List<Domicilio> domiciliosC5 = new ArrayList<>();
-		domiciliosC1.add(domicilioA);
-		domiciliosC2.add(domicilioB);
-		domiciliosC3.add(domicilioC);
-		domiciliosC4.add(domicilioD);
-		domiciliosC5.add(domicilioE);
-		Cliente c1 = new Cliente("Andres", "Listorti", 42658958, domiciliosC1);
-		Cliente c2 = new Cliente("Maria Soledad", "Gallo", 43444958, domiciliosC2);
-		Cliente c3 = new Cliente("Yesica", "Vazquez", 396584118, domiciliosC3);
-		Cliente c4 = new Cliente("Luz", "Britez", 18658223, domiciliosC4);
-		Cliente c5 = new Cliente("Yamila", "White", 432228958, domiciliosC5);
-		clienteService.agregarCliente(c1);
-		clienteService.agregarCliente(c2);
-		clienteService.agregarCliente(c3);
-		clienteService.agregarCliente(c4);
-		clienteService.agregarCliente(c5);		
+		// Domicilio domicilioA = new Domicilio();
+		// Domicilio domicilioB = new Domicilio();
+		// Domicilio domicilioC = new Domicilio();
+		// Domicilio domicilioD = new Domicilio();
+		// Domicilio domicilioE = new Domicilio();
+		// List<Domicilio> domiciliosC1 = new ArrayList<>();
+		// List<Domicilio> domiciliosC2 = new ArrayList<>();
+		// List<Domicilio> domiciliosC3 = new ArrayList<>();
+		// List<Domicilio> domiciliosC4 = new ArrayList<>();
+		// List<Domicilio> domiciliosC5 = new ArrayList<>();
+		// domiciliosC1.add(domicilioA);
+		// domiciliosC2.add(domicilioB);
+		// domiciliosC3.add(domicilioC);
+		// domiciliosC4.add(domicilioD);
+		// domiciliosC5.add(domicilioE);
+		// Cliente c1 = new Cliente("Andres", "Listorti", 42658958, domiciliosC1);
+		// Cliente c2 = new Cliente("Maria Soledad", "Gallo", 43444958, domiciliosC2);
+		// Cliente c3 = new Cliente("Yesica", "Vazquez", 396584118, domiciliosC3);
+		// Cliente c4 = new Cliente("Luz", "Britez", 18658223, domiciliosC4);
+		// Cliente c5 = new Cliente("Yamila", "White", 432228958, domiciliosC5);
+		// clienteService.agregarCliente(c1);
+		// clienteService.agregarCliente(c2);
+		// clienteService.agregarCliente(c3);
+		// clienteService.agregarCliente(c4);
+		// clienteService.agregarCliente(c5);		
 
 		System.out.println("Traer clientes Creados");
 		for (Cliente c : clienteService.getAllClientes()) {
@@ -88,9 +88,9 @@ public class EcomApplication implements CommandLineRunner {
 		System.out.println(buscadoPorApellido);
 		
 		
-		System.out.println("************Buscado por Borrado Yamila*************************");
-		clienteService.borrarCliente(c5);
-		System.out.println("******************Borrada***********************");
+		// System.out.println("************Buscado por Borrado Yamila*************************");
+		// clienteService.borrarCliente(c5);
+		// System.out.println("******************Borrada***********************");
 
 		System.out.println("Traer Clientes Restantes");
 		for (Cliente c : clienteService.getAllClientes()) {
