@@ -3,6 +3,7 @@ package com.ecom.cliente.ecom.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.hibernate.boot.model.naming.IllegalIdentifierException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,12 @@ public class ClienteService {
     
 
     public void agregarCliente(Cliente cliente) {
+        Cliente c = clienteRepository.findByDni(cliente.getDni());
+        if (c != null) {
+            throw new IllegalIdentifierException("El cliente ya existe");
+        } 
         clienteRepository.save(cliente);
+
     }
 
     public List<Cliente> getAllClientes() {

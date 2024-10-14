@@ -30,8 +30,16 @@ public class ClienteController {
 
     @PostMapping("/create")
     public ResponseEntity<?> agregarCliente(@RequestBody Cliente cliente) {
-        this.clienteService.agregarCliente(cliente);
-        return ResponseEntity.ok(cliente);
+        try {
+            this.clienteService.agregarCliente(cliente);
+            return ResponseEntity.ok(cliente);
+            
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return ResponseEntity.status(400).body("Cliente No creado");
+        }
+        // this.clienteService.agregarCliente(cliente);
+        // return ResponseEntity.ok(cliente);
     }
     
     
