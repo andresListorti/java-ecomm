@@ -70,11 +70,13 @@ public class ClienteService {
         return this.clienteRepository.findByApellido(apellido);
     }
 
-    public void borrarCliente(Cliente c) {
-        if (this.clienteRepository.existsById(c.getId())) {
-            this.clienteRepository.delete(c);
+    public boolean borrarCliente(int id) {
+        if (this.clienteRepository.existsById(id)) {
+            this.clienteRepository.deleteById(id);
+            return true;
         } else {
             System.out.println("El Cliente no puede borrarse porque no existe");
+            return false;
         }
 
     }

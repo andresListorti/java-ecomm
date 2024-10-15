@@ -13,6 +13,7 @@ import com.ecom.cliente.ecom.model.Cliente;
 import com.ecom.cliente.ecom.service.ClienteService;
 import com.ecom.cliente.ecom.utils.ApiResponse;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -80,6 +81,24 @@ public class ClienteController {
         } catch (Exception e) {
             return ResponseEntity.status(404).body(new ApiResponse("Error Inesperado: ", "Error al actualizar el"));
         }
+        
+    }
+
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<?> borrarCliente(@PathVariable int id) {
+        
+        try {
+            boolean eliminado = clienteService.borrarCliente(id);
+            if (eliminado) {
+                return ResponseEntity.ok(new ApiResponse("Cliente eliminado con éxito", null));
+            } else {
+                return ResponseEntity.status(404).body(new ApiResponse("Cliente no encontrado", null));
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body(new ApiResponse("Error al eliminar el cliente", e.getMessage()));
+        }
+        
+        
         
     }
     

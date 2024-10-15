@@ -66,10 +66,10 @@ public class EcomApplication implements CommandLineRunner {
 			
 		}
 		
-		Optional<Cliente> buscadoPorId = clienteService.getById(1);
+		// Optional<Cliente> buscadoPorId = clienteService.getById(1);
 		
-		System.out.println("************Buscado por ID 1*************************");
-		System.out.println(buscadoPorId);
+		// System.out.println("************Buscado por ID 1*************************");
+		// System.out.println(buscadoPorId);
 		
 		
 		// System.out.println("************Buscado por DNI*************************");
