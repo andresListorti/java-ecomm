@@ -72,32 +72,32 @@ public class EcomApplication implements CommandLineRunner {
 		System.out.println(buscadoPorId);
 		
 		
-		System.out.println("************Buscado por DNI*************************");
+		// System.out.println("************Buscado por DNI*************************");
 		
-		Cliente buscadoPorDni = clienteService.findByDni((long) 42658958);
-		System.out.println(buscadoPorDni);
+		// Cliente buscadoPorDni = clienteService.findByDni((long) 42658958);
+		// System.out.println(buscadoPorDni);
 		
-		System.out.println("************Buscado por Nombre *************************");
+		// System.out.println("************Buscado por Nombre *************************");
 		
-		Cliente buscadoPorNombre = clienteService.findByNombre("Yesica");
-		System.out.println(buscadoPorNombre);
+		// List<Cliente> buscadoPorNombre = clienteService.findByNombre("Yesica");
+		// System.out.println(buscadoPorNombre);
 		
-		System.out.println("************Buscado por Apellido *************************");
+		// System.out.println("************Buscado por Apellido *************************");
 		
-		List<Cliente> buscadoPorApellido = clienteService.findByApellido("Gallo");
-		System.out.println(buscadoPorApellido);
+		// List<Cliente> buscadoPorApellido = clienteService.findByApellido("Gallo");
+		// System.out.println(buscadoPorApellido);
 		
 		
-		// System.out.println("************Buscado por Borrado Yamila*************************");
+		// System.out.println("************ Borrado Yamila*************************");
 		// clienteService.borrarCliente(c5);
 		// System.out.println("******************Borrada***********************");
 
-		System.out.println("Traer Clientes Restantes");
-		for (Cliente c : clienteService.getAllClientes()) {
+		// System.out.println("Traer Clientes");
+		// for (Cliente c : clienteService.getAllClientes()) {
 			
-			System.out.println(c);
+		// 	System.out.println(c);
 			
-		}
+		// }
 
 		ZoneId zonaArgentina = ZoneId.of("America/Argentina/Buenos_Aires");
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");

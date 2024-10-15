@@ -34,12 +34,18 @@ public class ClienteService {
         return clienteRepository.findById(id);
     }
 
+
     public Cliente findByDni(Long dni) {
         return this.clienteRepository.findByDni(dni);
     }
-    public Cliente findByNombre(String nombre) {
+    
+    public List<Cliente> findByNombre(String nombre) {
         return this.clienteRepository.findByNombre(nombre);
     }
+    
+    // public List<Cliente> buscarPorNombre(String nombre) {
+    //     return this.clienteRepository.buscarPorNombre(nombre);
+    // }
     
     public List<Cliente> findByApellido(String apellido) {
         return this.clienteRepository.findByApellido(apellido);

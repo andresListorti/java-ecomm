@@ -2,6 +2,8 @@ package com.ecom.cliente.ecom.model;
 
 import java.util.List;
 
+import com.ecom.cliente.ecom.service.FechaService;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -38,14 +41,26 @@ public class Cliente {
 
  @Column(name = "DNI")
  private long dni;
+ 
+ @Column(name = "EDAD")
+ private int edad;
+
+ @Column(name = "FECHA DE CREACION")
+ private String fechaCreacion = FechaService.getFechaActual();
+
+ @Column(name = "FECHA DE MODIFICACION")
+ private String fechaModificacion;
 
  @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
  private List<Domicilio> domicilio;
 
-public Cliente(String nombre, String apellido, long dni, List<Domicilio> domicilio) {
+ 
+
+public Cliente(String nombre, String apellido, long dni, List<Domicilio> domicilio, int edad) {
     this.nombre = nombre;
     this.apellido = apellido;
     this.dni = dni;
+    this.edad = edad;
     this.domicilio = domicilio;
 }
 
@@ -104,11 +119,21 @@ public int hashCode() {
 }
 
 
-@Override
-public String toString() {
-    return "Cliente [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", domicilio="
-            + domicilio + "]";
-}
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", nombre='" + getNombre() + "'" +
+            ", apellido='" + getApellido() + "'" +
+            ", dni='" + getDni() + "'" +
+            ", edad='" + getEdad() + "'" +
+            ", fechaCreacion='" + getFechaCreacion() + "'" +
+            ", fechaModificacion='" + getFechaModificacion() + "'" +
+            ", domicilio='" + getDomicilio() + "'" +
+            "}";
+    }
+
 
 
 

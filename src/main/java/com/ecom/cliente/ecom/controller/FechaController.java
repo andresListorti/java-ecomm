@@ -21,7 +21,7 @@ public class FechaController {
 
     @GetMapping("/allFechas")
     public ResponseEntity<?> getfechas() {
-        ApiResponse apiResponse = new ApiResponse("Hora Actual: " + fechaService.getFechaActual(), " Cantidad de invocaciones: " + fechaService.getCantidadDeInvocaciones());
+        ApiResponse apiResponse = new ApiResponse("Hora Actual: " + FechaService.getFechaActual(), " Cantidad de invocaciones: " + fechaService.getCantidadDeInvocaciones());
         return ResponseEntity.ok(apiResponse);
     
     }

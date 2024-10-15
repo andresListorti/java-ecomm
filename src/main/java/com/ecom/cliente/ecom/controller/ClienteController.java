@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ecom.cliente.ecom.model.Cliente;
 import com.ecom.cliente.ecom.service.ClienteService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,10 +23,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class ClienteController {
     @Autowired
     private ClienteService clienteService;
-
+    
     @GetMapping("/all")
     public List<Cliente> getAllClients() {
         return this.clienteService.getAllClientes();
+    }
+    
+    @GetMapping("/pornombre")
+    public ResponseEntity<?> buscarClientePorNombre(@RequestParam String nombre) {
+        try {
+            this.clienteService.findByNombre(nombre);
+            return ResponseEntity.ok(this.clienteService.findByNombre(nombre));
+        } catch (Exception e) {
+            
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+    
+    @GetMapping("/porapellido/{apellido}")
+    public ResponseEntity<?> buscarClientePorApellido(@PathVariable String apellido) {
+        try {
+            this.clienteService.findByApellido(apellido);
+            return ResponseEntity.ok(this.clienteService.findByApellido(apellido));
+        } catch (Exception e) {
+            
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @PostMapping("/create")
@@ -41,6 +64,7 @@ public class ClienteController {
         // this.clienteService.agregarCliente(cliente);
         // return ResponseEntity.ok(cliente);
     }
+    
     
     
 
