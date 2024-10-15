@@ -1,19 +1,22 @@
 package com.ecom.cliente.ecom.dto;
 
 import org.springframework.core.serializer.Serializer;
+
+import lombok.Builder;
+
 import java.io.Serializable;
 
+@Builder
 // DTO Data Transfer Object
-
 public class ClienteDTO implements Serializable {
     private String nombre;
     private String apellido;
-    private long dni;
+    private int edad;
 
-    public ClienteDTO(String nombre, String apellido, long dni) {
+    public ClienteDTO(String nombre, String apellido, int edad) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.dni = dni;
+        this.edad = edad;
     }
 
 
@@ -33,12 +36,12 @@ public class ClienteDTO implements Serializable {
         this.apellido = apellido;
     }
 
-    public long getDni() {
-        return this.dni;
+    public int getEdad() {
+        return this.edad;
     }
 
-    public void setDni(long dni) {
-        this.dni = dni;
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
     
 }

@@ -8,13 +8,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ecom.cliente.ecom.dto.ClienteDTO;
 import com.ecom.cliente.ecom.model.Cliente;
 import com.ecom.cliente.ecom.service.ClienteService;
+import com.ecom.cliente.ecom.utils.ApiResponse;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 
 
@@ -65,7 +70,18 @@ public class ClienteController {
         // return ResponseEntity.ok(cliente);
     }
     
-    
+    @PutMapping("update/{id}")
+    public ResponseEntity<?> modificarCliente(@PathVariable int id, @RequestBody Cliente cliente) {
+        try {
+            ClienteDTO clienteActualizado = clienteService.actualizarCliente(id, cliente);
+            return ResponseEntity.ok(clienteActualizado);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(400).body(new ApiResponse("Datos de cliente invalidos: ", e.getMessage()));
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body(new ApiResponse("Error Inesperado: ", "Error al actualizar el"));
+        }
+        
+    }
     
 
 
