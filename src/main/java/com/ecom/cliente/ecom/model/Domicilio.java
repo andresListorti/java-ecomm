@@ -1,44 +1,44 @@
 package com.ecom.cliente.ecom.model;
 
-import jakarta.persistence.Column;
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import lombok.Builder;
+import lombok.Data;
 
 @Entity
-@Table(name = "DOMICILIO")
+@Data
+@Builder
+@Table(name = "domicilio")
 public class Domicilio {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
- @Id
- @GeneratedValue(strategy = GenerationType.IDENTITY)
- private int id;
+    private String direccion;
+    private String descripcion;
 
- @Column(name = "CALLE")
- private String calle;
+    @ManyToMany(mappedBy = "domicilios")
+    private Set<User> users = new HashSet<>();
 
- @Column(name = "NUMERO")
- private int numero;
+    public Domicilio() {
+    }
 
- @Column(name = "PISO")
- private int piso;
+    public Domicilio(Long id, String direccion, String descripcion, Set<User> users) {
+        this.id = id;
+        this.direccion = direccion;
+        this.descripcion = descripcion;
+        this.users = users;
+    }
 
- @Column(name = "DEPARTAMENTO")
- private String departamento;
+    public void addUser(User user) {
+        this.users.add(user);
+    }
 
- @Column(name = "CP")
- private String cp;
-
- @Column(name = "LOCALIDAD")
- private String localidad;
-
- @Column(name = "PROVINCIA")
- private String provincia;
-
- @ManyToOne(fetch = FetchType.LAZY)
- private Cliente cliente;
-// RESTO DE LOS MÉTODOS
 }
