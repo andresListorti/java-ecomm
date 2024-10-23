@@ -11,3 +11,5 @@ Se agregan controladores REST para todo el CRUD, se ponen a prueba primero por c
 Configuración:
 
 La conexión a la base de datos y otros ajustes se realizan en el archivo application.properties.
+
+---
