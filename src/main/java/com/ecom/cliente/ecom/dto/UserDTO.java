@@ -27,7 +27,7 @@ public class UserDTO {
    // @Schema(description = "Website of the user", example = "www.johndoe.com")
     private String website;
 
-    //@Schema(description = "List of motorcycles associated with the user")
+    //@Schema(description = "List of products associated with the user")
     private Set<Long> domicilioIds;
 
     @Autowired
