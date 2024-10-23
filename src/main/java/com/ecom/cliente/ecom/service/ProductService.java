@@ -14,44 +14,44 @@ import com.ecom.cliente.ecom.repository.ProductRepository;
 @Service
 public class ProductService {
     @Autowired
-    private final ProductMapper motorcycleMapper;
+    private final ProductMapper productMapper;
     @Autowired
-    private final ProductRepository motorcycleRepository;
+    private final ProductRepository productRepository;
 
-    public ProductService(ProductMapper motorcycleMapper, ProductRepository motorcycleRepository) {
-        this.motorcycleMapper = motorcycleMapper;
-        this.motorcycleRepository = motorcycleRepository;
+    public ProductService(ProductMapper productMapper, ProductRepository productRepository) {
+        this.productMapper = productMapper;
+        this.productRepository = productRepository;
     }
 
-    public ProductDTO createProduct(ProductDTO motorcycleDTO) {
-        Product motorcycle = motorcycleMapper.toProduct(motorcycleDTO);
-        Product savedMotorcycle = motorcycleRepository.save(motorcycle);
-        return motorcycleMapper.toProductDTO(savedMotorcycle);
+    public ProductDTO createProduct(ProductDTO productDTO) {
+        Product product = productMapper.toProduct(productDTO);
+        Product savedProduct = productRepository.save(product);
+        return productMapper.toProductDTO(savedProduct);
     }
 
     public ProductDTO getProductById(Long id) {
-        return motorcycleRepository.findById(id)
-                .map(motorcycleMapper::toProductDTO)
+        return productRepository.findById(id)
+                .map(productMapper::toProductDTO)
                 .orElse(null);
     }
 
     public List<ProductDTO> getAllProducts() {
-        return motorcycleRepository.findAll().stream()
-                .map(motorcycleMapper::toProductDTO)
+        return productRepository.findAll().stream()
+                .map(productMapper::toProductDTO)
                 .collect(Collectors.toList());
     }
 
-    public ProductDTO updateProduct(Long id, ProductDTO motorcycleDTO) {
-        return motorcycleRepository.findById(id)
-                .map(motorcycle -> {
-                    motorcycle.setModel(motorcycleDTO.getModel());
-                    motorcycle.setBrand(motorcycleDTO.getBrand());
-                    return motorcycleMapper.toProductDTO(motorcycleRepository.save(motorcycle));
+    public ProductDTO updateProduct(Long id, ProductDTO productDTO) {
+        return productRepository.findById(id)
+                .map(product -> {
+                    product.setModel(productDTO.getModel());
+                    product.setBrand(productDTO.getBrand());
+                    return productMapper.toProductDTO(productRepository.save(product));
                 })
                 .orElse(null);
     }
 
     public void deleteProduct(Long id) {
-        motorcycleRepository.deleteById(id);
+        productRepository.deleteById(id);
     }
 }
