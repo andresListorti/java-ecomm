@@ -59,5 +59,5 @@ public class UserDTO {
                 .collect(Collectors.toSet());
     }
 
-    // Constructors, getters, and setters
+    
 }

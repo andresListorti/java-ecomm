@@ -39,11 +39,11 @@ public class UserController {
     @Autowired
     private UserServiceImpl userService;
 
-    // @GetMapping("/{id}")
-    // public ResponseEntity<UserDTO> getUserById(@PathVariable Long id) {
-    // UserDTO user = userService.getUserById(id);
-    // return ResponseEntity.ok(user);
-    // }
+    @GetMapping("/{id}")
+    public ResponseEntity<UserDTO> getUserById(@PathVariable Long id) {
+    UserDTO user = userService.getUserById(id);
+    return ResponseEntity.ok(user);
+    }
     @PostMapping("/users/{userId}/products")
     public ResponseEntity<UserDTO> addProductToUser(@PathVariable Long userId,
             @RequestBody ProductDTO productDTO) {
