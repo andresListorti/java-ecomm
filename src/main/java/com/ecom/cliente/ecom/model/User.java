@@ -64,12 +64,11 @@ public class User {
         product.setUser(null);
     }
 
-    // Métodos de conveniencia para manejar la relación con Domicilio
+    
     public void addDomicilio(Domicilio domicilio) {
         if (!this.domicilios.contains(domicilio)) {
             domicilios.add(domicilio);
-            // Evitar agregar el usuario de vuelta al domicilio para prevenir recursión o
-            // ciclos
+            
             if (!domicilio.getUsers().contains(this)) {
                 domicilio.getUsers().add(this);
             }
@@ -81,5 +80,5 @@ public class User {
         domicilio.getUsers().remove(this);
     }
 
-    // Constructors, getters, and setters
+    
 }

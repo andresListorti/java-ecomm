@@ -29,7 +29,7 @@ public class ProductMapper {
         product.setId(productDTO.getId());
         product.setModel(productDTO.getModel());
         product.setBrand(productDTO.getBrand());
-        // Note: We're not setting the User here, as it should be handled separately
+        
         return product;
     }
 }

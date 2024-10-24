@@ -48,16 +48,16 @@ public class UserDTO {
     }
 
     public Set<DomicilioDTO> getDomiciliosByUserId(Long userId) {
-        // Buscar el usuario por ID
+        
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        // Convertir los domicilios del User a DomicilioDTOs
+        
         return user.getDomicilios()
                 .stream()
                 .map(UserMapperBuilder::toDomicilioDTO)
                 .collect(Collectors.toSet());
     }
 
-    // Constructors, getters, and setters
+    
 }
